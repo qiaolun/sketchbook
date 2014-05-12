@@ -43,7 +43,7 @@ void loop() {
     // check ratio
     
     ratio = lowpulseoccupancy/(sampletime_ms*10.0);  // Integer percentage 0=>100
-    concentration = 1.1*pow(ratio,3)-3.8*pow(ratio,2)+520*ratio+0.62; // using spec sheet curve
+    concentration = 0.30473 * pow(ratio, 3) - 2.63943 * pow(ratio, 2) + 102.60291 * ratio - 3.49616;
     Serial.print("pmdata,");
     Serial.print(mode);
     Serial.print(",");
