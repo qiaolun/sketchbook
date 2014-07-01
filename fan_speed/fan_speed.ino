@@ -2,7 +2,7 @@
 
 #include <IRremote.h>
 
-int RECV_PIN = 2;
+int RECV_PIN = 11;
 IRrecv irrecv(RECV_PIN);
 decode_results results;
 
@@ -90,9 +90,11 @@ void loop() {
 
   if (irrecv.decode(&results)) {
     Serial.println(results.value, HEX);
+    Serial.println(results.decode_type, DEC);    
     irrecv.resume(); // Receive the next value
 
-      if(results.value == BTN_EQ) {
+      //
+    if(results.value == BTN_EQ) {
       fanState = ! fanState; // switch control
       Serial.print("fan state ");
       Serial.println(fanState, DEC);
@@ -159,6 +161,10 @@ void loop() {
 
 
 }
+
+
+
+
 
 
 
